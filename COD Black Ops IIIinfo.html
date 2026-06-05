@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        if (document.cookie.indexOf('logged_in=true') === -1) {
+            window.location.href = 'index.php?showLogin=true';
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #fefa23;
+            border-radius: 6px;
+        }
+
+        body {
+            background: #ef8e06;
+        }
+
+        .container {
+            position: relative;
+            min-height: 100vh;
+            background: #ef8e06;
+        }
+
+        .container .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .container .image-container .image {
+            width: 450px;
+            height: 300px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .container .image-container .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s linear;
+        }
+
+        .container .image-container .image:hover img {
+            transform: scale(1.1);
+        }
+
+        .container .popup-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            display: none;
+        }
+
+        .container .popup-image span {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .container .popup-image img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            width: 950px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .container .popup-image img {
+                width: 100%;
+            }
+        }
+
+        /*Content*/
+
+        .content {
+            padding-top: 50px;
+            padding-left: 70px;
+            padding-right: 70px;
+        }
+
+        .content h2 {
+            color: #000000;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 20px;
+            color: #000000;
+            text-align: justify;
+        }
+
+        .content .para1 {
+            padding-bottom: 10px;
+        }
+
+        /*More Games*/
+
+        .games {
+            padding-top: 50px;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .games h2 {
+            margin: 10px 0;
+        }
+
+        .games ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .games ul li {
+            font-weight: 700;
+            list-style: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .games ul li.active {
+            background: #fefa23;
+            color: #000000;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .games ul li a {
+            text-decoration: none;
+            letter-spacing: 1px;
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .games ul li {
+            border: 1px solid #000000;
+            color: #000000;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        .games ul li:hover {
+            background: #58bff3;
+            border: none;
+            color: #222;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .games .cardbx {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .games .cardbx .card {
+            width: 250px;
+            border-radius: 10px;
+            margin: 20px 40px;
+            background: #000000;
+            overflow: hidden;
+        }
+
+        .games .cardbx .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .games .cardbx .card .content {
+            padding: 10px;
+        }
+
+        .games .cardbx .card .content h4 a {
+            display: inline-block;
+            margin: 10px 0;
+            text-decoration: none;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .games .cardbx .card .info {
+            border-top: 2px solid #fefa23;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .games .cardbx .card .info p {
+            font-size: 1em;
+            color: #fff;
+        }
+
+        .games .cardbx .card .info p span {
+            color: #58bff3
+        }
+
+        .games .cardbx .card .info a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 1px solid #fefa23;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .games .cardbx .card .info a:hover {
+            background: #58bff3;
+            border: none;
+            color: #222;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .games .cardbx .card.hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="image-container">
+            <div class="image"><img src="Image/COD Black Ops III_img1.png"></div>
+            <div class="image"><img src="Image/COD Black Ops III_img2.png"></div>
+            <div class="image"><img src="Image/COD Black Ops III_img3.png"></div>
+            <div class="image"><img src="Image/COD Black Ops III_img4.png"></div>
+            <div class="image"><img src="Image/COD Black Ops III_img5.png"></div>
+            <div class="image"><img src="Image/COD Black Ops III_img6.png"></div>
+        </div>
+
+        <div class="popup-image">
+            <span>&times;</span>
+            <img src="Image/COD Black Ops III_img1.png">
+        </div>
+
+        <div class="content">
+            <h2>About this game</h2>
+            <p class="para1">
+                Call of Duty: Black Ops III is a 2015 first-person shooter game developed by Treyarch and published by
+                Activision. It is the twelfth entry in the Call of Duty series and the sequel to the 2012 video game
+                Call of Duty: Black Ops II. It was released on PlayStation 4, Windows, and Xbox One on November 6, 2015.
+                A feature-limited version developed by Beenox and Mercenary Technology that only supports multiplayer
+                modes was released on PlayStation 3 and Xbox 360 and was also the final Call of Duty title released on
+                those platforms.
+            </p>
+            <p class="para2">
+                Black Ops III takes place in 2065, 40 years after the events of Black Ops II, amidst the transformative
+                effects of the future climate change and the emergence of advanced technologies, including cybernetic
+                enhancements. Similar to its predecessors, the story follows a group of black ops soldiers. The game's
+                campaign is designed to support 4-player cooperative gameplay, allowing for bigger, more open level
+                design and less corridor shooting. As the player character is cybernetically enhanced, players have
+                access to various special activities. The game also features a standalone Zombies campaign mode, and a
+                "Nightmares" mode which replaces all enemies as zombies.
+                </p>
+        </div>
+
+        <div class="games animeX" id="Games">
+            <h2>Similar games</h2>
+            <div class="cardbx">
+                <div class="card">
+                    <a href="Payback 2.html"><img src="Image/payback.png"></a>
+                    <div class="content">
+                        <h4><a href="Payback 2.html">Payback 2</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Car Game</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=net.apex_designs.payback2&hl=en-US">Install</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <a href="Marvel Future Fight.html"><img src="Image/marvelfutureFight.jpg"></a>
+                    <div class="content">
+                        <h4><a href="Marvel Future Fight.html">Marvel Future Fight</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Figthing</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.netmarble.mherosgb&hl=en-us">Install</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <a href="Fortnite.html"><img src="Image/fortnite.jpg"></a>
+                    <div class="content">
+                        <h4><a href="Fortnite.html">Fortnite</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Multiplayer</span></p>
+                            <a href="https://www.fortnite.com/download?lang=en-US">Install</a>
+                        </div>
+                    </div>
+                </div>
+    
+               
+
+                <div class="card">
+                    <a href="Marvel Contest of Champions.html"><img src="Image/Marvel Contest of Champions.jpg"></a>
+                    <div class="content">
+                        <h4><a href="Marvel Contest of Champions.html">Marvel Contest of Champions</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Figthing</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.kabam.marvelbattle&hl=en-US">Install</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <a href="Grand Criminal Online.html"><img src="Image/Grand Criminal Online.png"></a>
+                    <div class="content">
+                        <h4><a href="Grand Criminal Online.html">Grand Criminal Online</a></h4>
+                        <div class="info">
+                            <p>Type<br><span>Open World</span></p>
+                            <a href="https://play.google.com/store/apps/details?id=ru.SOFFGames.gco">Install</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <a href="Evil Lands.html"><img src="Image/Evil Lands.webp"></a>
+                    <div class="content">
+                        <h4><a href="Evil Lands.html">Evil Lands</a></h4>
+                        <div class="info">
+                            <p>Type<br><span>Open World</span></p>
+                            <a href="https://play.google.com/store/apps/details?id=com.ragequitgames.evillands">Install</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <a href="Gangstar Vegas.html"><img src="Image/Gangstar Vegas.png"></a>
+                    <div class="content">
+                        <h4><a href="Gangstar Vegas.html">Gangstar Vegas</a></h4>
+                        <div class="info">
+                            <p>Type<br><span>Open World</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftGGHM">Install</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <a href="Gangstar New Orleans.html"><img src="Image/Gangstar New Orleans.webp"></a>
+                    <div class="content">
+                        <h4><a href="Gangstar New Orleans.html">Gangstar New Orleans</a></h4>
+                        <div class="info">
+                            <p>Type<br><span>Open World</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftOLHM">Install</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                <li><a href="index.php">
+                        <p>Home</p>
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.image-container img').forEach(image => {
+            image.onclick = () => {
+                document.querySelector('.popup-image').style.display = 'block';
+                document.querySelector('.popup-image img').src = image.getAttribute('src');
+            }
+        });
+
+        document.querySelector('.popup-image span').onclick = () => {
+            document.querySelector('.popup-image').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

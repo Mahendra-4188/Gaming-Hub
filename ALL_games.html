@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        if (document.cookie.indexOf('logged_in=true') === -1) {
+            window.location.href = 'index.php?showLogin=true';
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <title>More Games</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins', sans-serif;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ef8e06;
+        }
+
+        /*Games*/
+        .games {
+            padding: 0px 100px;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 30px auto;
+        }
+
+        .games .cardbx {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .games .cardbx .card {
+            width: 250px;
+            border-radius: 10px;
+            margin: 20px 40px;
+            background: #000000;
+            overflow: hidden;
+        }
+
+        .games .cardbx .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .games .cardbx .card .content {
+            padding: 10px;
+        }
+
+        .games .cardbx .card .content h4 a {
+            display: inline-block;
+            margin: 10px 0;
+            text-decoration: none;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .games .cardbx .card .info {
+            border-top: 2px solid #fefa23;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .games .cardbx .card .info p {
+            font-size: 1em;
+            color: #fff;
+        }
+
+        .games .cardbx .card .info p span {
+            color: #58bff3
+        }
+
+        .games .cardbx .card .info a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 1px solid #fefa23;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .games .cardbx .card .info a:hover {
+            background: #58bff3;
+            border: none;
+            color: #222;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .games .cardbx .card.hide {
+            display: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #fefa23;
+            border-radius: 6px;
+        }
+
+        .action .searchBx {
+            padding-top: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .action .searchBx input {
+            width: 30rem;
+            padding: .5rem;
+            height: 3rem;
+            letter-spacing: 2px;
+            background: #fff;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .action .searchBx input:hover {
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .other {
+            margin-top: 20px;
+        }
+
+        .other ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .other ul li {
+            list-style: none;
+            margin: 10px;
+            font-weight: 500;
+            color: #000000;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            padding: 10px 20px 10px 20px;
+        }
+
+        .other ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .other ul li:hover {
+            background: #58bff3;
+            border: none;
+            color: #222;
+            box-shadow: 0 0 10px #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="action">
+        <div class="searchBx">
+            <input type="text" placeholder="Search" id="myinput" name="" onkeyup="search()">
+        </div>
+    </div>
+    <div class="other">
+        <ul>
+            <li><a href="PC_games.html">
+                    <p>PC</p>
+                </a></li>
+            <li><a href="MOBILE_games.html">
+                    <p>Mobile</p>
+                </a></li>
+        </ul>
+    </div>
+
+    <div class="games animeX" id="Games">
+        <div class="cardbx">
+
+            <div class="card">
+                <a href="Asphalt-8.html"><img src="Image/asp-8.png"></a>
+                <div class="content">
+                    <h4><a href="Asphalt-8.html">Asphalt-8</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftA8HM&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Extreme Car Driving.html"><img src="Image/Extreme Car Driving Simulator.png"></a>
+                <div class="content">
+                    <h4><a href="Extreme Car Driving.html">Extreme Car Driving</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.aim.racing">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Asphalt Legends Unite.html"><img src="Image/asphalt-legends-unite.webp"></a>
+                <div class="content">
+                    <h4><a href="Asphalt Legends Unite.html">Asphalt Legends Unite</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftA9HM">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Hot Wheels Unlimited.html"><img src="Image/Hot Wheels unlimited.jpg"></a>
+                <div class="content">
+                    <h4><a href="Hot Wheels Unlimited.html">Hot Wheels Unlimited</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.budgestudios.googleplay.HotWheelsUnlimited">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Race Max Pro.html"><img src="Image/Race Max Pro.png"></a>
+                <div class="content">
+                    <h4><a href="Race Max Pro.html">Race Max Pro</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=game.revani.racemaxpro">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="CarX Rally.html"><img src="Image/CarX Rally.png"></a>
+                <div class="content">
+                    <h4><a href="CarX Rally.html">CarX Rally</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.carxtech.rally">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Drift Max Pro.html"><img src="Image/Drift Max Pro Car Racing Game.webp"></a>
+                <div class="content">
+                    <h4><a href="Drift Max Pro.html">Drift Max Pro</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.tiramisu.driftmax2">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="F1 Clash.html"><img src="Image/F1 Clash.jpg"></a>
+                <div class="content">
+                    <h4><a href="F1 Clash.html">F1 Clash</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.hutchgames.formularacing">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Real Racing 3.html"><img src="Image/Real Racing 3.jpg"></a>
+                <div class="content">
+                    <h4><a href="Real Racing 3.html">Real Racing 3</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.ea.games.r3_row">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Need for Speed.html"><img src="Image/Need for Speed.jpg"></a>
+                <div class="content">
+                    <h4><a href="Need for Speed.html">Need for Speed</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.ea.game.nfs14_row">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Apex Legends.html"><img src="Image/apex_legends.jpg"></a>
+                <div class="content">
+                    <h4><a href="Apex Legends.html">Apex Legends</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Figthing</span></p>
+                        <a href="https://www.ea.com/games/apex-legends/apex-legends">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Designer City.html"><img src="Image/Designer City.webp"></a>
+                <div class="content">
+                    <h4><a href="Designer City.html">Designer City</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.spheregamestudios.designercity">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="SimCity BuildIt.html"><img src="Image/SimCity BuildIt.webp"></a>
+                <div class="content">
+                    <h4><a href="SimCity BuildIt.html">SimCity BuildIt</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.ea.game.simcitymobile_row">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="City Island 5.html"><img src="Image/City Island 5.jpg"></a>
+                <div class="content">
+                    <h4><a href="City Island 5.html">City Island 5</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.sparklingsociety.cityisland5">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Hay Day.html"><img src="Image/Hay Day.webp"></a>
+                <div class="content">
+                    <h4><a href="Hay Day.html">Hay Day</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.supercell.hayday">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Brawl Stars.html"><img src="Image/Brawl Stars.jpg"></a>
+                <div class="content">
+                    <h4><a href="Brawl Stars.html">Brawl Stars</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.supercell.brawlstars">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Clash Royale.html"><img src="Image/Clash Royale.jpg"></a>
+                <div class="content">
+                    <h4><a href="Clash Royale.html">Clash Royale</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.supercell.clashroyale">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Boom Beach.html"><img src="Image/Boom Beach.jpg"></a>
+                <div class="content">
+                    <h4><a href="Boom Beach.html">Boom Beach</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.supercell.boombeach">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Squad Busters.html"><img src="Image/Squad Busters.avif"></a>
+                <div class="content">
+                    <h4><a href="Squad Busters.html">Squad Busters</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.supercell.squad">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="TheoTown.html"><img src="Image/TheoTown.png"></a>
+                <div class="content">
+                    <h4><a href="TheoTown.html">TheoTown</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=info.flowersoft.theotown.theotown">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="City Island 6.html"><img src="Image/City Island 6.png"></a>
+                <div class="content">
+                    <h4><a href="City Island 6.html">City Island 6</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.sparklingsociety.cityisland6">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Pocket Build.html"><img src="Image/Pocket Build.png"></a>
+                <div class="content">
+                    <h4><a href="Pocket Build.html">Pocket Build</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Racing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=moonbear.PocketBuild">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Minecraft.html"><img src="Image/mincraft.jpg"></a>
+                <div class="content">
+                    <h4><a href="Minecraft.html">Minecraft</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Survival game</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.mojang.minecraftpe">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Designer City 2.html"><img src="Image/Designer City 2.png"></a>
+                <div class="content">
+                    <h4><a href="Designer City 2.html">Designer City 2</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>City design game</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.spheregamestudios.designercity2">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Fortnite.html"><img src="Image/fortnite.jpg"></a>
+                <div class="content">
+                    <h4><a href="Fortnite.html">Fortnite</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Multiplayer</span></p>
+                        <a href="https://www.fortnite.com/download?lang=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Fall Guys.html"><img src="Image/FallGuys.jpg"></a>
+                <div class="content">
+                    <h4><a href="Fall Guys.html">Fall Guys</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Multiplayer</span></p>
+                        <a href="https://www.fallguys.com/en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Marvel Future Fight.html"><img src="Image/marvelfutureFight.jpg"></a>
+                <div class="content">
+                    <h4><a href="Marvel Future Fight.html">Marvel Future Fight</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Figthing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.netmarble.mherosgb&hl=en-us">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Among Us.html"><img src="Image/among us.jpg"></a>
+                <div class="content">
+                    <h4><a href="Among Us.html">Among Us</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Multiplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.innersloth.spacemafia&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="eFootball.html"><img src="Image/efootball.webp"></a>
+                <div class="content">
+                    <h4><a href="eFootball.html">eFootball</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Football Game</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=jp.konami.pesam&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="COD Black Ops III.html"><img src="Image/cod.jpg"></a>
+                <div class="content">
+                    <h4><a href="COD Black Ops III.html">COD Black Ops III</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Figthing</span></p>
+                        <a href="https://apps.microsoft.com/detail/9p2z4lp10zmc?hl=en-US&gl=US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="COC.html"><img src="Image/coc.jpg"></a>
+                <div class="content">
+                    <h4><a href="COC.html">COC</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Multiplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="GTA 5.html"><img src="Image/gta.jpg"></a>
+                <div class="content">
+                    <h4><a href="GTA 5.html">GTA 5</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Open World</span></p>
+                        <a href="https://www.rockstargames.com/gta-v?info=download">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Dawnlands.html"><img src="Image/Dawnlands.jpg"></a>
+                <div class="content">
+                    <h4><a href="Dawnlands.html">Dawnlands</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Open World</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.xishanju.codess.intl">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Albion Online.html"><img src="Image/Albion Online.webp"></a>
+                <div class="content">
+                    <h4><a href="Albion Online.html">Albion Online</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Open World</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.albiononline">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Cyberika.html"><img src="Image/Cyberika.png"></a>
+                <div class="content">
+                    <h4><a href="Cyberika.html">Cyberika</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Open World</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=game.rpg.action.cyber">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Grand Criminal Online.html"><img src="Image/Grand Criminal Online.png"></a>
+                <div class="content">
+                    <h4><a href="Grand Criminal Online.html">Grand Criminal Online</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Open World</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=ru.SOFFGames.gco">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Evil Lands.html"><img src="Image/Evil Lands.webp"></a>
+                <div class="content">
+                    <h4><a href="Evil Lands.html">Evil Lands</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Open World</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.ragequitgames.evillands">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Gangstar Vegas.html"><img src="Image/Gangstar Vegas.png"></a>
+                <div class="content">
+                    <h4><a href="Gangstar Vegas.html">Gangstar Vegas</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Open World</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftGGHM">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Gangstar New Orleans.html"><img src="Image/Gangstar New Orleans.webp"></a>
+                <div class="content">
+                    <h4><a href="Gangstar New Orleans.html">Gangstar New Orleans</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Open World</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftOLHM">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Genshin Impact.html"><img src="Image/genshin-impact.avif"></a>
+                <div class="content">
+                    <h4><a href="Genshin Impact.html">Genshin Impact</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Multiplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact&hl=en-US&pli=1">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Subway Subfers.html"><img src="Image/subway subfers.jpg"></a>
+                <div class="content">
+                    <h4><a href="Subway Subfers.html">Subway Subfers</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Hill Climb Racing.html"><img src="Image/hill climb racing.jpg"></a>
+                <div class="content">
+                    <h4><a href="Hill Climb Racing.html">Hill Climb Racing</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Racing Game</span></p>
+                        <a
+                            href="https://play.google.com/store/search?q=Hill%20Climb%20Racing&c=apps&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Candy Crush.html"><img src="Image/candy crush.jpeg"></a>
+                <div class="content">
+                    <h4><a href="#">Candy Crush</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.king.candycrushsaga&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Beach Buggy.html"><img src="Image/beach buggy.jpg"></a>
+                <div class="content">
+                    <h4><a href="Beach Buggy.html">Beach Buggy</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Racing Game</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.vectorunit.purple.googleplay&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Temple Run-2.html"><img src="Image/temple-run.png"></a>
+                <div class="content">
+                    <h4><a href="Temple Run-2.html">Temple Run-2</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.imangi.templerun2&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Ludo King.html"><img src="Image/ludo king.png"></a>
+                <div class="content">
+                    <h4><a href="Ludo King.html">Ludo King</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Multiplayer</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.ludo.king&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Payback 2.html"><img src="Image/payback.png"></a>
+                <div class="content">
+                    <h4><a href="Payback 2.html">Payback 2</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Car Game</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=net.apex_designs.payback2&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Robbery Bob-2.html"><img src="Image/robbery bob.png"></a>
+                <div class="content">
+                    <h4><a href="Robbery Bob-2.html">Robbery Bob-2</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.chillingo.robberybob2.android.gplay&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Hunter Assassin.html"><img src="Image/Hunter-Assassin.webp"></a>
+                <div class="content">
+                    <h4><a href="Hunter Assassin.html">Hunter Assassin</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.rubygames.assassin&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Angry Birds Friends.html"><img src="Image/angrybirds.jpg"></a>
+                <div class="content">
+                    <h4><a href="Angry Birds Friends.html">Angry Birds Friends</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.rovio.angrybirdsfriends&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Angry Birds 2.html"><img src="Image/Angry Birds 2.png"></a>
+                <div class="content">
+                    <h4><a href="Angry Birds 2.html">Angry Birds 2</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.rovio.baba&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Marvel Contest of Champions.html"><img src="Image/Marvel Contest of Champions.jpg"></a>
+                <div class="content">
+                    <h4><a href="Marvel Contest of Champions.html">Marvel Contest of Champions</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Figthing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.kabam.marvelbattle&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Stumble Guys.html"><img src="Image/Stumble Guys.jpg"></a>
+                <div class="content">
+                    <h4><a href="Stumble Guys.html">Stumble Guys</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Multiplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.kitkagames.fallbuddies&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Hitman.html"><img src="Image/hitman.jpg"></a>
+                <div class="content">
+                    <h4><a href="Hitman.html">Hitman</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Singleplayer</span></p>
+                        <a href="https://hitman.en.softonic.com/download">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Football league 2025.html"><img src="Image/Football league 2025.png"></a>
+                <div class="content">
+                    <h4><a href="Football league 2025.html">Football league 2025</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Football Game</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.football.soccer.league&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Nitro Nation.html"><img src="Image/nitro nation.jpg"></a>
+                <div class="content">
+                    <h4><a href="Nitro Nation.html">Nitro Nation</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Racing game</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.creativemobile.nno&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Sniper Fury.html"><img src="Image/sniper fury.png"></a>
+                <div class="content">
+                    <h4><a href="Sniper Fury.html">Sniper Fury</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftFWHM&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Hitman Sniper.html"><img src="Image/Hitman Sniper.png"></a>
+                <div class="content">
+                    <h4><a href="Hitman Sniper.html">Hitman Sniper</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.squareenixmontreal.hitmansniperandroid">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Modern Combat 5.html"><img src="Image/Modern Combat 5.png"></a>
+                <div class="content">
+                    <h4><a href="Modern Combat 5.html">Modern Combat 5</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftM5HM">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Battle Prime.html"><img src="Image/Battle Prime.webp"></a>
+                <div class="content">
+                    <h4><a href="Battle Prime.html">Battle Prime</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.blitzteam.battleprime">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Pure Sniper.html"><img src="Image/Pure Sniper.png"></a>
+                <div class="content">
+                    <h4><a href="Pure Sniper.html">Pure Sniper</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.miniclip.realsniper">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Hunting Clash.html"><img src="Image/Hunting Clash.png"></a>
+                <div class="content">
+                    <h4><a href="Hunting Clash.html">Hunting Clash</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.tensquaregames.hunting.clash.wild.hunter.deer">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Cover Fire.html"><img src="Image/Cover Fire.png"></a>
+                <div class="content">
+                    <h4><a href="Cover Fire.html">Cover Fire</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.generagames.resistance">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Mini Militia Classic.html"><img src="Image/Mini Militia Classic.png"></a>
+                <div class="content">
+                    <h4><a href="Mini Militia Classic.html">Mini Militia Classic</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.appsomniacs.mmc">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Aliens Drive Me Crazy.html"><img src="Image/Aliens Drive Me Crazy.jpg"></a>
+                <div class="content">
+                    <h4><a href="Aliens Drive Me Crazy.html">Aliens Drive Me Crazy</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.rebeltwins.aliensdrivemecrazy">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Cookies Must die.html"><img src="Image/Cookies Must die.jpeg"></a>
+                <div class="content">
+                    <h4><a href="Cookies Must die.html">Cookies Must die</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Singleplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.rebeltwins.cookiesmustdie">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Farming Simulatour 22.html"><img src="Image/farming simulatour 22.jpeg"></a>
+                <div class="content">
+                    <h4><a href="Farming Simulatour 22.html">Farming Simulatour 22</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Farming Game</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.cgs.farming.simulator.modern.newfarming.games&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Ninja Arashi 2.html"><img src="Image/Ninja Arashi 2.jpg"></a>
+                <div class="content">
+                    <h4><a href="Ninja Arashi 2.html">Ninja Arashi 2</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Figthing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.blackpanther.ninjaarashi2&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="March of Empires.html"><img src="Image/march of empires.jpg"></a>
+                <div class="content">
+                    <h4><a href="March of Empires.html">March of Empires</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>War Games</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftGHHM&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Rise of Castles.html"><img src="Image/Rise of Castles.png"></a>
+                <div class="content">
+                    <h4><a href="Rise of Castles.html">Rise of Castles</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Building Games</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.im30.ROE.gp&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="World of Tanks Blitz.html"><img src="Image/world-of-tanks.webp"></a>
+                <div class="content">
+                    <h4><a href="World of Tanks Blitz.html">World of Tanks Blitz</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Figthing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=net.wargaming.wot.blitz&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Tanks a Lot - Real-time Brawl.html"><img src="Image/Tanks a Lot - Real-time Brawl.png"></a>
+                <div class="content">
+                    <h4><a href="Tanks a Lot - Real-time Brawl.html">Tanks a Lot - Real-time Brawl</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Figthing</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.idspe.tanks2">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Tanks Force.html"><img src="Image/Tanks Force.png"></a>
+                <div class="content">
+                    <h4><a href="Tanks Force.html">Tanks Force</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Figthing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.extremedevelopers.tankforce">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Hills of Steel.html"><img src="Image/Hills of Steel.jpg"></a>
+                <div class="content">
+                    <h4><a href="Hills of Steel.html">Hills of Steel</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Figthing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.superplusgames.hosandroid">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Tank Stars.html"><img src="Image/Tank Stars.png"></a>
+                <div class="content">
+                    <h4><a href="Tank Stars.html">Tank Stars</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Battle Arena</span></p>
+                        <a href="https://play.google.com/store/apps/details?id=com.playgendary.tanks">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="MWT Tank Battles.html"><img src="Image/MWT_Tank Battles.jpg"></a>
+                <div class="content">
+                    <h4><a href="MWT Tank Battles.html">MWT:Tank Battles</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Figthing</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.Shooter.ModernWarfront&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Hello Neighbor.html"><img src="Image/Hello Neighbor.jpg"></a>
+                <div class="content">
+                    <h4><a href="Hello Neighbor.html">Hello Neighbor</a></h4>
+                    <div class="info">
+                        <p>Type:<br><span>Multiplayer</span></p>
+                        <a
+                            href="https://play.google.com/store/apps/details?id=com.tinybuildgames.helloneighbor&hl=en-US">Install</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="Wo Long Fallen Dynasty.html"><img src="Image/wolong-fallen-dynasty.jpg"></a>
+                <div class="content">
+                    <h4><a href="Wo Long Fallen Dynasty.html">Wo Long Fallen Dynasty</a></h4>
+                    <div class="info">
+                        <p>Type<br><span>Open World</span></p>
+                        <a
+                            href="https://www.xbox.com/en-IN/games/store/wo-long-fallen-dynasty-complete-edition/9NZXN1T0MQMK">Install</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function search() {
+            let filter = document.getElementById('myinput').value.toUpperCase();
+            let item = document.querySelectorAll('.card');
+            let l = document.getElementsByTagName('h4');
+            for (var i = 0; i <= l.length; i++) {
+                let a = item[i].getElementsByTagName('h4')[0];
+                let value = a.innerHTML || a.innerText || a.textContent;
+                if (value.toUpperCase().indexOf(filter) > -1) {
+                    item[i].style.display = "";
+                }
+                else {
+                    item[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

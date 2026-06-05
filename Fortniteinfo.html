@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        if (document.cookie.indexOf('logged_in=true') === -1) {
+            window.location.href = 'index.php?showLogin=true';
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #fefa23;
+            border-radius: 6px;
+        }
+
+        body {
+            background: #ef8e06;
+        }
+
+        .container {
+            position: relative;
+            min-height: 100vh;
+            background: #ef8e06;
+        }
+
+        .container .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .container .image-container .image {
+            width: 450px;
+            height: 300px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .container .image-container .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s linear;
+        }
+
+        .container .image-container .image:hover img {
+            transform: scale(1.1);
+        }
+
+        .container .popup-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            display: none;
+        }
+
+        .container .popup-image span {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size: 60px;
+            font-weight: bolder;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .container .popup-image img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            width: 950px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .container .popup-image img {
+                width: 100%;
+            }
+        }
+
+        /*Content*/
+
+        .content {
+            padding-top: 50px;
+            padding-left: 70px;
+            padding-right: 70px;
+        }
+
+        .content h2 {
+            color: #000000;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 20px;
+            color: #000000;
+            text-align: justify;
+        }
+
+        .content .para1 {
+            padding-bottom: 10px;
+        }
+
+        /*More Games*/
+
+        .games {
+            padding-top: 50px;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .games h2 {
+            margin: 10px 0;
+        }
+
+        .games ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .games ul li {
+            font-weight: 700;
+            list-style: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .games ul li.active {
+            background: #fefa23;
+            color: #000000;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .games ul li a {
+            text-decoration: none;
+            letter-spacing: 1px;
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .games ul li {
+            border: 1px solid #000000;
+            color: #000000;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        .games ul li:hover {
+            background: #58bff3;
+            border: none;
+            color: #222;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .games .cardbx {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .games .cardbx .card {
+            width: 250px;
+            border-radius: 10px;
+            margin: 20px 40px;
+            background: #000000;
+            overflow: hidden;
+        }
+
+        .games .cardbx .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .games .cardbx .card .content {
+            padding: 10px;
+        }
+
+        .games .cardbx .card .content h4 a {
+            display: inline-block;
+            margin: 10px 0;
+            text-decoration: none;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .games .cardbx .card .info {
+            border-top: 2px solid #fefa23;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .games .cardbx .card .info p {
+            font-size: 1em;
+            color: #fff;
+        }
+
+        .games .cardbx .card .info p span {
+            color: #58bff3
+        }
+
+        .games .cardbx .card .info a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 1px solid #fefa23;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .games .cardbx .card .info a:hover {
+            background: #58bff3;
+            border: none;
+            color: #222;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .games .cardbx .card.hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="image-container">
+                <div class="image"><img src="Image/Fortnite_img1.jpg"></div>
+                <div class="image"><img src="Image/Fortnite_img2.jpg"></div>
+                <div class="image"><img src="Image/Fortnite_img3.jpeg"></div>
+                <div class="image"><img src="Image/Fortnite_img4.jpg"></div>
+                <div class="image"><img src="Image/Fortnite_img5.jpeg"></div>
+                <div class="image"><img src="Image/Fortnite_img6.jpg"></div>
+        </div>
+
+        <div class="popup-image">
+            <span>&times;</span>
+                <img src="Image/Fortnite_img1.jpg">
+        </div>
+
+        <div class="content">
+            <h2>About this game</h2>
+            <p class="para1">Fortnite is an online video game and game platform developed by Epic Games and released in
+                2017. It is available in seven distinct game mode versions that otherwise share the same general
+                gameplay and game engine: Fortnite Battle Royale, a battle royale game in which up to 100 players fight
+                to be the last person standing; Fortnite: Save the World, a cooperative hybrid tower defense-shooter and
+                survival game in which up to four players fight off zombie-like creatures and defend objects with traps
+                and fortifications they can build; Fortnite Creative, in which players are given complete freedom to
+                create worlds and battle arenas; Lego Fortnite, an open world game collection divided between survival
+                game Lego Fortnite Odyssey and social game Lego Fortnite Brick Life; Rocket Racing, a racing game;
+                Fortnite Festival, a rhythm game; and Fortnite Ballistic, a tactical first-person shooter currently in
+                early access. All game modes except Save the World are free-to-play.
+                available until its discontinuation in 2023.
+            </p>
+            <p class="para2">
+                Save the World and Battle Royale were released in 2017 as early access titles, while Creative was
+                released on December 6, 2018. While the Save the World and Creative versions have been successful for
+                Epic Games, Fortnite Battle Royale in particular became an overwhelming success and a cultural
+                phenomenon, drawing more than 125 million players in less than a year, earning hundreds of millions of
+                dollars per month. Fortnite as a whole generated $9 billion in gross revenue up until December 2019, and
+                it has been listed among the greatest games of all time.
+            </p>
+        </div>
+
+        <div class="games animeX" id="Games">
+            <h2>Similar games</h2>
+            <div class="cardbx">
+
+                <div class="card">
+                        <a href="Apex Legends.html"><img src="Image/apex_legends.jpg"></a>
+                    <div class="content">
+                        <h4><a href="Apex Legends.html">Apex Legends</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Figthing</span></p>
+                            <a href="https://www.ea.com/games/apex-legends/apex-legends">Install</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                        <a href="Marvel Future Fight.html"><img src="Image/marvelfutureFight.jpg"></a>
+                    <div class="content">
+                        <h4><a href="Marvel Future Fight.html">Marvel Future Fight</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Figthing</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.netmarble.mherosgb&hl=en-us">Install</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                        <a href="COD Black Ops III.html"><img src="Image/cod.jpg"></a>
+                    <div class="content">
+                        <h4><a href="COD Black Ops III.html">COD Black Ops III</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Figthing</span></p>
+                            <a href="https://apps.microsoft.com/detail/9p2z4lp10zmc?hl=en-US&gl=US">Install</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                        <a href="COC.html"><img src="Image/coc.jpg"></a>
+                    <div class="content">
+                        <h4><a href="COC.html">COC</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Multiplayer</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.supercell.clashofclans&hl=en-US">Install</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                        <a href="Marvel Contest of Champions.html"><img src="Image/Marvel Contest of Champions.jpg"></a>
+                    <div class="content">
+                        <h4><a href="Marvel Contest of Champions.html">Marvel Contest of Champions</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Figthing</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.kabam.marvelbattle&hl=en-US">Install</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                        <a href="Cover Fire.html"><img src="Image/Cover Fire.png"></a>
+                    <div class="content">
+                        <h4><a href="Cover Fire.html">Cover Fire</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Singleplayer</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.generagames.resistance">Install</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                        <a href="Modern Combat 5.html"><img src="Image/Modern Combat 5.png"></a>
+                    <div class="content">
+                        <h4><a href="Modern Combat 5.html">Modern Combat 5</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Singleplayer</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.gameloft.android.ANMP.GloftM5HM">Install</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                        <a href="Battle Prime.html"><img src="Image/Battle Prime.webp"></a>
+                    <div class="content">
+                        <h4><a href="Battle Prime.html">Battle Prime</a></h4>
+                        <div class="info">
+                            <p>Type:<br><span>Singleplayer</span></p>
+                            <a
+                                href="https://play.google.com/store/apps/details?id=com.blitzteam.battleprime">Install</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                <li><a href="index.php">
+                        <p>Home</p>
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.image-container img').forEach(image => {
+            image.onclick = () => {
+                document.querySelector('.popup-image').style.display = 'block';
+                document.querySelector('.popup-image img').src = image.getAttribute('src');
+            }
+        });
+
+        document.querySelector('.popup-image span').onclick = () => {
+            document.querySelector('.popup-image').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

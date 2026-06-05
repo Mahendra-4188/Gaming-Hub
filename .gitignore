@@ -1,0 +1,11 @@
+# Exclude large video files which exceed GitHub's upload limits
+Video/
+
+# Exclude WAMP/local database connection files (optional, but recommended if passwords are added later)
+# connection.php
+
+# Exclude editor and local environment configurations
+.vscode/
+*.code-workspace
+.DS_Store
+Thumbs.db

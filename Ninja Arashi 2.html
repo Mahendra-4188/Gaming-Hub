@@ -1,0 +1,220 @@
+<html lang="en">
+
+<head>
+    <script>
+        if (document.cookie.indexOf('logged_in=true') === -1) {
+            window.location.href = 'index.php?showLogin=true';
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Arashi 2</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: #1a1a1a;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 25px;
+            position: absolute;
+            top: 70%;
+            left: 7%;
+            transform: translateY(-50%);
+            z-index: 1;
+            background-color: rgba(112, 112, 112, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            background-image: linear-gradient(to right, #ff7300, #fffb00);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .content p {
+            margin: 0.5rem 0;
+        }
+
+        .content .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #d2d1cf;
+        }
+
+        .content .rating img {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            margin-right: 1rem;
+        }
+
+        .content .rating .stars {
+            display: flex;
+            align-items: center;
+        }
+
+        .content .ads {
+            color: #eaeaea;
+        }
+
+        .content .company {
+            color: aqua;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .content .rating .stars i {
+            color: #fefa23;
+            margin-right: 0.5rem;
+            cursor: text;
+        }
+
+        .content .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .content .buttons a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .content .buttons button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .content .buttons .install {
+            background-color: #000;
+            border: 1px solid #fefa23;
+            color: white;
+        }
+
+        .content .buttons .install:hover {
+            background: #58bff3;
+            border: none;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .content .buttons .share {
+            background-color: #000;
+            color: #ffffff;
+            border: 1px solid #fefa23;
+        }
+
+        .content .buttons .wishlist {
+            background-color: #000;
+            color: #ffffff;
+            border: 1px solid #fefa23;
+        }
+
+        .content .buttons .share:hover {
+            background: #58bff3;
+            border: none;
+            color: #fff;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .content .buttons .wishlist:hover {
+            background: #58bff3;
+            border: none;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .content .buttons .more-info {
+            background-color: #000;
+            color: #ffffff;
+            border: 1px solid #fefa23;
+        }
+
+        .content .buttons .more-info:hover {
+            background: #58bff3;
+            border: none;
+            color: black;
+            box-shadow: 0 0 10px #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <video class="background-video" autoplay muted loop>
+        <source src="Video/Ninja Arashi 2 Trailer.mp4" type="video/mp4">
+    </video>
+
+    <div class="content">
+        <h1>Ninja Arashi 2</h1>
+        <p><a href="https://play.google.com/store/apps/developer?id=Black+Panther&hl=en-US" class="company">Black Panther</a></p>
+        <p class="ads">Contains ads . In-app purchases</p>
+        <div class="rating">
+            <img src="Image/Ninja Arashi 2.jpg" alt="App icon">
+            <div>
+                <div class="stars">
+                    <span>4.5 <i class='bx bxs-star'></i> </span>
+                </div>
+                <p>334K reviews</p>
+            </div>
+            <div style="margin-left: 2rem;">10M+ Downloads</div>
+        </div>
+        <div class="buttons">
+            <button class="install"><a
+                    href="https://play.google.com/store/apps/details?id=com.blackpanther.ninjaarashi2&hl=en-US">Install</a></button>
+            <button class="share" id="shareme"><a href="">Share</a></button>
+             <!--<button class="wishlist"><a href="#">Add to wishlist</a></button>-->
+            <button class="more-info"><a href="#">More Info</a></button>
+        </div>
+    </div>
+
+    <script>
+
+        //share working code
+        const shareme = document.querySelector("#shareme");
+        shareme.addEventListener("click", () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: "Extreme Car Driving Simulator",
+                    url: "https://www.google.com",
+                })
+                    .then(() => {
+                        console.log("Thanks for sharing!");
+
+                    })
+                    .catch((err) => {
+                        console.log("Oh no, sharing failed");
+                        caches.log(err);
+                    });
+            } else {
+                alert("Sorry, sharing is not supported on this browser.");
+            }
+        })
+    </script>
+
+</body>
+
+</html>
